@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset ="UTF-8">
+    <meta name="Description" content="@Umbraco.Field("metaDescription")">
+    <meta name="Keywords" content ="@Umbraco.Field("metaKeywords")">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/SiteLayout.css">
+  
+    <title>@Umbraco.Field("siteTitle")</title>
+    
+</head>
+<body>
+    @Umbraco.RenderMacro("mainMenu")
+    <div class="wrapper">
+        <div class="row">
+        @RenderBody()
+        </div>
+    </div>
+   
+</body>
+</html>
+
+ <footer>
+   @Umbraco.Field("footer")
+</footer>
