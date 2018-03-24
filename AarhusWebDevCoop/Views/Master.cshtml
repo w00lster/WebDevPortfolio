@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/SiteLayout.css">
+    <link rel="stylesheet" href="/css/Main.css"
   
     <title>@Umbraco.Field("siteTitle")</title>
     
@@ -30,6 +31,6 @@
 </body>
 </html>
 
- <footer>
-   @Umbraco.Field("footer")
+ <footer class="footer">
+     @Umbraco.Field("footer", recursive: true)
 </footer>
