@@ -4,5 +4,7 @@
 	Layout = "Master.cshtml";
 } 
 
-<h2>@CurrentPage.Name</h2>
+<h1 class="col-sm-12">@CurrentPage.Name</h1>
+<div class="col-sm-10">
 @Html.Action("Index", "ContactFormSurface")
+</div>

@@ -10,3 +10,8 @@ footer{
 	right: 0;
 	background:#f8f9fa;
 }
+
+.MemberCard{
+	border: 1px solid gray;
+    border-radius: 4px;
+}

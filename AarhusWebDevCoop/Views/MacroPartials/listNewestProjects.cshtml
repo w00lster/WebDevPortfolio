@@ -15,9 +15,9 @@
                     First().Children().Where("projectStatus.Contains(\"25\")")
                     .OrderBy("CreateDate desc").Take(5);}
 
-<ul>
+<ul class="col-sm-8">
 	@foreach(var item in selection){
-		<li>
+		<li class="list-group-item">
 			<a href="@item.Url">@item.Name</a>
 		</li>
 	}

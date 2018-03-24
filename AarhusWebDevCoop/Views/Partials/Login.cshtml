@@ -24,29 +24,37 @@
 {
 
     if(!Members.GetCurrentLoginStatus().IsLoggedIn){
-    <fieldset>
+<fieldset>
+    <div class ="col-sm-8">
         <legend>Login</legend>
         
         @Html.ValidationSummary("loginModel", true)
-
-        @Html.LabelFor(m => loginModel.Username)
+        <div class ="col-sm-8">
+        @Html.LabelFor(m => loginModel.Username) 
         @Html.TextBoxFor(m => loginModel.Username)
+        </div>
         @Html.ValidationMessageFor(m => loginModel.Username)
-        <br />
-
+       
+        <div class ="col-sm-2">
         @Html.LabelFor(m => loginModel.Password)
+        </div>
+        <div class ="col-sm-8">
         @Html.PasswordFor(m => loginModel.Password)
+        </div>
         @Html.ValidationMessageFor(m => loginModel.Password)
-        <br />
-
-        <button>Login</button>
-    </fieldset>  
-    } else{
-        <p>You are currently logged in as 
+        
+        <div class="sm-col-2">
+            <button>Login</button>
+        </div>
+    </div>
+</fieldset>  
+    }else{
+        <p class ="col-sm-8">You are currently logged in as 
         @Members.GetCurrentLoginStatus().Name</p>
         
         var logoutModel= new PostRedirectModel();
         logoutModel.RedirectUrl= "/";
+        
         using(Html.BeginUmbracoForm<UmbLoginStatusController>("HandleLogout")) {
         <button>Logout</button>@Html.HiddenFor(m => logoutModel.RedirectUrl)
         }
