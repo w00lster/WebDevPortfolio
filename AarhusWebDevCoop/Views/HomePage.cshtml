@@ -4,9 +4,13 @@
 	Layout = "Master.cshtml";
 }
 
-<div>
+<div class="col-sm-6">
     @Umbraco.Field("mainContent")
 </div>
-    <div>
+<div class ="col-sm-6">
+    <a href="http://localhost:56056/article-Overview">Click this link to be taken to all articles</a> <br/>
+    <a href="http://localhost:56056/projects-Overview">Click this link to be taken to all projects</a>
+</div>
+    <div class="col-sm-4">
         <ul>@Umbraco.RenderMacro("listNewestProjects")</ul>
     </div>

@@ -4,9 +4,9 @@
 	Layout = "Master.cshtml";
 }
 
-    <div>
+    <div class="col-sm-8">
         <section>
-            <h1>@Umbraco.Field("articlesTitle")</h1>
+            <h1 class="page-header">@Umbraco.Field("articlesTitle")</h1>
             <p>@Umbraco.Field("articlesBodyText")</p>
             
         </section>
@@ -17,9 +17,9 @@
 	var selection = Model.Content.Site().FirstChild("articleOverview").Children("articleItem")
 						.Where(x => x.IsVisible());
 }
-<ul>
+<ul class="list-group">
 	@foreach(var item in selection){
-		<li>
+		<li class="list-group-item">
 			<a href="@item.Url">@item.Name</a>
 		</li>
 	}

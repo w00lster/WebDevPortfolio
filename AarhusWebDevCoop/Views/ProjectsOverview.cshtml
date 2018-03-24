@@ -4,9 +4,9 @@
 	Layout = "Master.cshtml";
 }
 
-<div>
+<div class="col-sm-8">
     <section>
-        <h1>@Umbraco.Field("projectsTitle")</h1>
+        <h1 class="page-header">@Umbraco.Field("projectsTitle")</h1>
         <p>@Umbraco.Field("projectsBodyText")</p>
     </section>
     
@@ -16,11 +16,24 @@
 	var selection = Model.Content.Site().FirstChild("projectsOverview").Children("projectItem")
 						.Where(x => x.IsVisible());
 }
-<ul>
+<ul class="list-group">
 	@foreach(var item in selection){
-		<li>
+	var isProtected= umbraco.library.IsProtected(item.Id, item.Path); 
+    var loginAccess= umbraco.library.IsProtected(item.Id, item.Path) && 
+                umbraco.library.HasAccess(item.Id, item.Path);
+                
+        if(!isProtected || loginAccess){
+        if(item.GetPropertyValue<string>("projectStatus") != "25"){
+		<li class="list-group-item list-group-item-warning">
 			<a href="@item.Url">@item.Name</a>
 		</li>
+		}
+		else{
+		    <li class="list-group-item list-group-item-success">
+			<a href="@item.Url">@item.Name</a>
+		</li>
+		    }
+		}
 	}
 </ul>
 
