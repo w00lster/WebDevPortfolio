@@ -42,14 +42,9 @@
                         var isProtected= umbraco.library.IsProtected(page.Id, page.Path); 
                         var loginAccess= umbraco.library.IsProtected(page.Id, page.Path) && 
                             umbraco.library.HasAccess(page.Id, page.Path);
-                            
-                             
                         if(!isProtected || loginAccess){
-                            <a class="dropdown-item" href="@page.Url">@page.Name</a>
+                        <a class="dropdown-item" href="@page.Url">@page.Name</a>
                         }   
-                        /* if(page.GetPropertyValue<int>("projectStatus") == 25){
-                            <a class="dropdown-item" href="@page.Url">@page.Name</a>
-                        } */
                     }
                 </div>
                 </li>
