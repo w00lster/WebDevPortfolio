@@ -8,8 +8,8 @@
     It also highlights the current active page/section in the navigation with the CSS class "current".
 *@
 
-@{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
 @{ var root = Model.Content.Site(); }
+@{ var selection = root.Children.Where(x => x.IsVisible()).ToArray(); }
 @{ IQueryable projectDropdown = Model.Content.AncestorOrSelf(1).
                                 Children.Where(x => x.DocumentTypeAlias == "projectsOverview").
                                 First().Children.Where("Visible").OrderBy("Name"); }
@@ -18,7 +18,6 @@
                                 First().Children.Where("Visible").OrderBy("Name"); }
                                 
 @if (selection.Length > 0){
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
              <a class="navbar-brand" href="@root.Url">@root.Name</a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,14 +26,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <ul class="nav navbar-nav">
         @foreach (var item in selection){
-        
                 if(item.Id == 1078){
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown" href="@item.Url" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >@item.Name</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach(IPublishedContent page in articleDropdown){
                         <a class="dropdown-item" href="@page.Url">@page.Name</a>
-                    
                     }
                 </div>
                 </li>
@@ -54,12 +51,9 @@
                 </li>
             } else{
                 <a class="nav-link" href="@item.Url">@item.Name</a>
-            }
-            
+            }   
         }
-        
        </ul>
        </div>
 </nav>
-
 }

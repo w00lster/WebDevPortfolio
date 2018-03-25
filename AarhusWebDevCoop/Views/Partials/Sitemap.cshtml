@@ -30,17 +30,17 @@
     @* If any items are returned, render a list *@
     if (selection.Length > 0)
     {
-        <ul>
+        <ul class="col-sm-12" style="margin-left: 2em">
             @foreach (var item in selection)
             {
             if(item.Id == 2108){} else{
-                <li class="level-@item.Level">
-                    <a href="@item.Url">@item.Name</a>
+                
+                <li class="col-sm-12 level-@item.Level">
+                      <a href="@item.Url">@item.Name</a>
                           @Traverse(item)
                 </li>
                     }
                     @* Run the traverse helper again for any child pages *@
-              
             }
         </ul>
     }
