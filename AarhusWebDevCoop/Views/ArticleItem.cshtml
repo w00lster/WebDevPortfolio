@@ -4,10 +4,25 @@
 	Layout = "Master.cshtml";
 }   
 
-<h1 class="col-sm-8">@Umbraco.Field("articleTitle")</h1>
-    <section>
-        <article class="col-sm-8">
-        <p >@Umbraco.Field("articleContent")</p>
-        </article>     
-    </section>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        @if(Model.Content.HasValue("articleImage")){
+            var mediaItem = Model.Content.GetPropertyValue<IPublishedContent>("articleImage");
+            <img src="@mediaItem.Url" alt=""/>
+            
+        }
+    </div>
+    
+    <div class="col-lg-7">
+    <h3 class="col-sm-8 col-lg-12">@Umbraco.Field("articleTitle")</h3>
+        <section class="col-lg-12">
+            <article class="col-sm-12">
+            <p >@Umbraco.Field("articleContent")</p>
+            </article>     
+        </section>
+    </div>
+    </div>
+</div>
+
 

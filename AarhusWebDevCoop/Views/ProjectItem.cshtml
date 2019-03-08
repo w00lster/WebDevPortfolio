@@ -2,6 +2,7 @@
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
 	Layout = "Master.cshtml";
+	var sliderItems = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("projectImages");
 }
 
 <section>
@@ -9,6 +10,18 @@
         <h1 class="col-sm-10">@Umbraco.Field("projectTitle")</h1>
         <div class="col-sm-8">
             <p>@Umbraco.Field("projectDescription")</p>
-        </div>
+        </div>    
     </article>
+    <div class="col-lg-12">
+        <div class="row">
+         @if(sliderItems != null){
+        
+        foreach(var item in sliderItems){
+        
+        <img id="imageStyling" class="col-lg-3" src="@item.Url" alt="First slide">
+        }
+        
+        }
+</div>
+</div>
 </section>

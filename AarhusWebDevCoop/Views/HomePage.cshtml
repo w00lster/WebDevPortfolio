@@ -1,16 +1,28 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using ContentModels = Umbraco.Web.PublishedContentModels;
+
 @{
 	Layout = "Master.cshtml";
 }
 
 <div class="col-sm-6">
+    <div>
+        @if(Model.Content.HasValue("frontpageImage")){
+            var mediaItem = Model.Content.GetPropertyValue<IPublishedContent>("frontpageImage");
+            <img src="@mediaItem.Url" alt=""/>
+            
+        }
+    </div>
     @Umbraco.Field("mainContent")
 </div>
 <div class ="col-sm-6">
-    <a href="http://localhost:56056/article-Overview">Click this link to be taken to all articles</a> <br/>
-    <a href="http://localhost:56056/projects-Overview">Click this link to be taken to all projects</a>
+    <h3>Links to:</h3>
+    <a href="http://localhost:56056/article-Overview">All articles</a> <br/>
+    <a href="http://localhost:56056/projects-Overview">All projects</a>
 </div>
     <div class="col-sm-4">
+      <h3>Completed Projects:</h3>
         @Umbraco.RenderMacro("listNewestProjects")
     </div>
+    
+    

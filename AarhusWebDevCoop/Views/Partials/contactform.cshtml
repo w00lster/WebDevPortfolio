@@ -6,7 +6,7 @@
 
 @if (TempData["success"] == null) 
 {
-    using(Html.BeginUmbracoForm("HandleFormSubmit", "ContactFormSurface", new object{ }, 
+    using(Html.BeginUmbracoForm("HandleSubmitForm", "ContactFormSurface", new object{ }, 
         new{ @class = "form-horizontal"})){
         <div class="form-group">
             @Html.LabelFor(m => m.Name, new{ @class = "col-sm-2 control-label"})
